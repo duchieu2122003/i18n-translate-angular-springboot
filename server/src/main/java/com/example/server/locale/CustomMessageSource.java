@@ -37,9 +37,13 @@ public class CustomMessageSource implements MessageSource {
         return messageSource.getMessage(resolvable, locale);
     }
 
-    public String getMessage(String fileName, String key) {
+    //    public String getMessage(String fileName, String key) {
+//        Locale locale = LocaleContextHolder.getLocale();
+//    String messageKey = fileName + "." + key;
+//        return messageSource.getMessage(fileName + "." + key, null, new Locale("vi"));
+//    }
+    public String getMessage(String key) {
         Locale locale = LocaleContextHolder.getLocale();
-        return messageSource.getMessage(fileName + "." + key, null, new Locale("vi"));
+        return messageSource.getMessage(key, null, locale);
     }
-
 }

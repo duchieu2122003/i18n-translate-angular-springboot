@@ -31,7 +31,6 @@ private animalService:AnimalService,
     {
       next:(res)=>{
     if (res==true){
-      this.toast.success("Thay đổi ngôn ngữ thành công")
     }else{
       this.toast.error("Thay đổi ngôn ngữ thất bại")
     }
@@ -50,6 +49,7 @@ private animalService:AnimalService,
         this.toast.warning(res);
         console.log(res)
       },error:(err)=>{
+        this.toast.warning(err.error.message)
         console.log(err)
       }
     })

@@ -41,11 +41,14 @@ public class LocaleConfig implements WebMvcConfigurer {
     @Bean
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-        messageSource.setBasename("classpath:/messages");
-//        messageSource.setBasenames("classpath:/messages/vi","classpath:/messages/en");
+        messageSource.setBasenames("classpath:messages/vi/animal",
+                "classpath:messages/en/animal",
+                "classpath:messages/ko/animal");
+//        messageSource.setBasename("classpath:/messages/message");
+//        messageSource.setBasename("classpath:/messages/"+LocaleContextHolder.getLocale().getLanguage()+"/animal");
         messageSource.setDefaultEncoding("UTF-8");
         messageSource.setUseCodeAsDefaultMessage(true);
-//        messageSource.setCacheSeconds(3600);
+//        messageSource.setCacheSeconds(60);//3600
         return messageSource;
     }
 }

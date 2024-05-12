@@ -16,7 +16,7 @@ export class LanguageService {
     let langStorage: string = language.substring(0, language.indexOf("/"));
     this.translate.use(language);
     localStorage.setItem('lang', langStorage)
-      registerLocaleData(langStorage);
+     registerLocaleData(langStorage);
   }
 
   langStorage() {

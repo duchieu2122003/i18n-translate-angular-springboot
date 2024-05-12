@@ -21,10 +21,7 @@ public class MessageException extends RuntimeException {
 
     @Override
     public String getMessage() {
-        return "Not found message code: " + message + " - file name: " + pathFile;
+        return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

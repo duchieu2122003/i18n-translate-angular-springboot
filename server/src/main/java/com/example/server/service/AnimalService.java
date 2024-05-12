@@ -26,8 +26,9 @@ public class AnimalService {
     }
 
     public String sendMesCheck(String a) {
+        System.err.println("=========" + LocaleContextHolder.getLocale().getLanguage() + "============");
         if (a.isEmpty()) {
-            throw new MessageException(customMessageSource.getMessage("animal", "error.name"), "animal");
+            throw new MessageException(customMessageSource.getMessage("error.name"), "animal");
         }
         return "ok";
     }
