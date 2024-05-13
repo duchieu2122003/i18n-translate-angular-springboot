@@ -25,10 +25,18 @@ public class AnimalService {
         return animalRepo.findAll();
     }
 
-    public String sendMesCheck(String a) {
-        System.err.println("=========" + LocaleContextHolder.getLocale().getLanguage() + "============");
+    public String sendMessageName(String a) {
+        System.err.println("=========NAME" + LocaleContextHolder.getLocale().getLanguage() + "============");
         if (a.isEmpty()) {
-            throw new MessageException(customMessageSource.getMessage("error.name"), "animal");
+            throw new MessageException(customMessageSource.getMessage("animal","error.name"), "animal");
+        }
+        return "ok";
+    }
+
+    public String sendMessageAge(String a) {
+        System.err.println("=========AGE" + LocaleContextHolder.getLocale().getLanguage() + "============");
+        if (a.isEmpty()) {
+            throw new MessageException(customMessageSource.getMessage("person","error.age"), "person");
         }
         return "ok";
     }

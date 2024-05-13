@@ -29,8 +29,13 @@ public class AnimalController {
         return new ResponseEntity<>(animalService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/message")
-    public ResponseEntity<?> getMessage() {
-        return new ResponseEntity<>(animalService.sendMesCheck(""), HttpStatus.OK);
+    @GetMapping("/message-name")
+    public ResponseEntity<?> getMessageName() {
+        return new ResponseEntity<>(animalService.sendMessageName(""), HttpStatus.OK);
+    }
+
+    @GetMapping("/message-age")
+    public ResponseEntity<?> getMessageAge() {
+        return new ResponseEntity<>(animalService.sendMessageAge(""), HttpStatus.OK);
     }
 }
