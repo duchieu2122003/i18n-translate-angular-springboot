@@ -108,4 +108,24 @@ public class LocaleConfig implements WebMvcConfigurer {
             }
         }
     }
+
+//     private void loadPropertiesFromDirectory(File path, List<String> propertiesFiles) {
+//             File[] files = path.listFiles();
+//             if (files == null) {
+//                 return;
+//             }
+//             String languageCode = path.getName();
+//             for (File file : files) {
+//                 if (file.isDirectory()) {
+//                     loadPropertiesFromDirectory(file, propertiesFiles);
+//                 } else if (!path.equals(new File("src/main/resources/i18n")) && file.isFile() && file.getName().endsWith(".properties")) {
+//                     String fileName = file.getName();
+//                     int lastIndex = fileName.lastIndexOf('_');
+//                     if (lastIndex != -1) {
+//                         fileName = fileName.substring(0, lastIndex);
+//                     }
+//                     propertiesFiles.add("classpath:/i18n/" + languageCode + "/" + fileName);
+//                 }
+//             }
+//         }
 }

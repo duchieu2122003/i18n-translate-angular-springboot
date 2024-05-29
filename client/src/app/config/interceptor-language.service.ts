@@ -19,5 +19,4 @@ export class InterceptorLanguage implements HttpInterceptor {
     return next.handle(modifiedRequest);
   }
 
-
 }
