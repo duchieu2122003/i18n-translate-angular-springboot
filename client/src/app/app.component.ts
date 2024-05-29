@@ -10,45 +10,44 @@ import {AnimalService} from "./service/animal.service";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'client';
 
-  constructor(private toast:ToastrService,
-private animalService:AnimalService,
-
-    private translate: TranslateService,
+  constructor(private toast: ToastrService,
+              private animalService: AnimalService,
+              private translate: TranslateService,
               private language: LanguageService,
-              private locale:LocaleService) {
+              private locale: LocaleService) {
   }
 
   ngOnInit(): void {
-     this.translate.use(this.language.langStorage()+"/person");
+    this.translate.use(this.language.langStorage() + "");
   }
+
   changeLanguage(language: string) {
-  this.language.switchLanguage(language+'/person');
-
-  this.locale.changeLangServe(language).subscribe(
-    {
-      next:(res)=>{
-    if (res==true){
-    }else{
-      this.toast.error("Thay đổi ngôn ngữ thất bại")
-    }
-      },
-      error:(err)=>{
-        this.toast.error("Lỗi hệ thống")
-        console.log(err)
+    this.language.switchLanguage(language + '');
+    this.locale.changeLangServe(language).subscribe(
+      {
+        next: (res) => {
+          if (res == true) {
+          } else {
+            this.toast.error(this.translate.instant("error.language"))
+          }
+        },
+        error: (err) => {
+          this.toast.error(this.translate.instant("error.language"))
+          console.log(err)
+        }
       }
-    }
-  )
+    )
   }
 
-  getMessageBackend(){
+  getMessageBackend() {
     this.animalService.getMessage().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.toast.warning(res);
         console.log(res)
-      },error:(err)=>{
+      }, error: (err) => {
         this.toast.warning(err.error.message)
         console.log(err)
       }

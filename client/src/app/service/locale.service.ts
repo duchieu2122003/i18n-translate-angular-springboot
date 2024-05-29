@@ -6,11 +6,10 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class LocaleService {
-  private api = 'http://localhost:8081/api/locale';
+  private api = 'http://localhost:8080/api/locale';
 
   constructor(private http: HttpClient) {
   }
-
   changeLangServe(lang: string): Observable<any> {
     return this.http.get(this.api + '/' + lang)
   }

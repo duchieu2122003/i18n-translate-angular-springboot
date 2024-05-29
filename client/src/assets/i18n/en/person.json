@@ -4,5 +4,13 @@
     "age": "I am twenty-one years old years old",
     "address": "I live in Ha Noi",
     "job": "I am a software engineer"
+  },
+  "error": {
+    "name": "Name cannot be empty",
+    "language": "Failed to switch language"
+  },
+  "success": {
+    "name": "Name satisfies the format",
+    "language": "Language switched successfully"
   }
 }

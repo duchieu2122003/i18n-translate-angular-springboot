@@ -4,5 +4,13 @@
     "age": "Năm nay tôi 21 tuổi",
     "address": "Tôi đang sinh sống tại Hà Nội",
     "job": "Tôi là một lập trình viên"
+  },
+  "error": {
+    "name": "Tên không được để trống",
+    "language": "Chuyển đổi ngôn ngữ thất bại"
+  },
+  "success": {
+    "name": "Tên thỏa mãn định dạng",
+    "language": "Chuyển đổi ngôn ngữ thành công"
   }
 }

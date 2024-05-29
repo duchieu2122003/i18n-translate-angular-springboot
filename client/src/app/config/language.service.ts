@@ -13,10 +13,10 @@ export class LanguageService {
 
   switchLanguage(language: string) {
     let lag = localStorage.getItem('lang') || 'vi';
-    let langStorage: string = language.substring(0, language.indexOf("/"));
     this.translate.use(language);
-    localStorage.setItem('lang', langStorage)
-     registerLocaleData(langStorage);
+    localStorage.setItem('lang', language)
+     registerLocaleData(language);
+    this.toast.success(this.translate.instant('success.language'));
   }
 
   langStorage() {
@@ -32,8 +32,8 @@ export class LanguageService {
   providedIn:'root'
 })
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
-  handle(params: MissingTranslationHandlerParams) {
-    console.log(`Missing translation for key: ${params.key}`);
-    return params.key;
+  handle(params: MissingTranslationHandlerParams): string {
+    return `${translationNotFound}[${params.key}]`;
   }
 }
+export const translationNotFound = 'not-found-key';

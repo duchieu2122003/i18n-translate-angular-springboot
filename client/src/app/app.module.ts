@@ -11,7 +11,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {InterceptorLanguage} from "./config/interceptor-language.service";
 
 export function httpTranslateLoader(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './src/assets/i18n/', '.json');
 }
 
 @NgModule({
