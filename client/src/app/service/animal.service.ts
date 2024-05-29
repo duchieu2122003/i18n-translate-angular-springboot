@@ -12,11 +12,11 @@ export class AnimalService {
   constructor(private http: HttpClient) {
   }
 
-  getAnimals(): Observable<any> {
-    return this.http.get(this.api)
+  getMessageName(): Observable<any> {
+    return this.http.get(this.api + '/message-name')
   }
 
-   getMessage(): Observable<any> {
-    return this.http.get(this.api+'/message')
+  getMessageAge(): Observable<any> {
+    return this.http.get(this.api + '/message-age')
   }
 }

@@ -8,7 +8,9 @@
             (click)="changeLanguage('ko')">Korea</button>
 <hr/>
     <button type="button" class="btn btn-secondary"
-            (click)="getMessageBackend()">Get message backend</button>
+            (click)="getMessageNameBackend()">Get message name backend</button>
+    <button type="button" class="btn btn-success"
+            (click)="getMessageAgeBackend()">Get message age backend</button>
    <br/>
     <h1 translate="person.name"></h1>
     <h1  translate="person.age"></h1>
@@ -16,31 +18,3 @@
     <h1>{{'person.job'| translate}}</h1>
   </div>
 </div>
-
-
-
-
-
-<!--<table class="table table-hover  text-center">-->
-<!--  <thead>-->
-<!--  <tr>-->
-<!--    <th scope="col">#</th>-->
-<!--    <th scope="col">Tên phòng ban</th>-->
-<!--    <th scope="col">Mô tả</th>-->
-<!--    <th colspan="2">Hành động</th>-->
-<!--  </tr>-->
-<!--  </thead>-->
-<!--  <tbody>-->
-<!--  <tr *ngFor="let item of listDepartments, let i=index">-->
-<!--    <th scope="row">{{ i + 1 }}</th>-->
-<!--    <td>{{ item.name }}</td>-->
-<!--    <td>{{ item.descriptions }}</td>-->
-<!--    <td>-->
-<!--      <button type="button" class="btn btn-warning" (click)="openShowUpdate(item)">Sửa</button>-->
-<!--    </td>-->
-<!--    <td>-->
-<!--      <button type="button" class="btn btn-danger" (click)="handleDelete(item.id)">Xóa</button>-->
-<!--    </td>-->
-<!--  </tr>-->
-<!--  </tbody>-->
-<!--</table>-->

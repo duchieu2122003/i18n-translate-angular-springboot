@@ -15,7 +15,7 @@ export class LanguageService {
     let lag = localStorage.getItem('lang') || 'vi';
     this.translate.use(language);
     localStorage.setItem('lang', language)
-     registerLocaleData(language);
+    registerLocaleData(language);
     this.toast.success(this.translate.instant('success.language'));
   }
 
@@ -29,11 +29,12 @@ export class LanguageService {
 }
 
 @Injectable({
-  providedIn:'root'
+  providedIn: 'root'
 })
 export class MyMissingTranslationHandler implements MissingTranslationHandler {
   handle(params: MissingTranslationHandlerParams): string {
     return `${translationNotFound}[${params.key}]`;
   }
 }
+
 export const translationNotFound = 'not-found-key';

@@ -1,4 +1,3 @@
-// webpack.custom.js
 const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
 const path = require('path');
 

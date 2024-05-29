@@ -26,7 +26,6 @@ public class AnimalService {
     }
 
     public String sendMessageName(String a) {
-        System.err.println("=========NAME" + LocaleContextHolder.getLocale().getLanguage() + "============");
         if (a.isEmpty()) {
             throw new MessageException(customMessageSource.getMessage("animal","error.name"), "animal");
         }
@@ -34,7 +33,6 @@ public class AnimalService {
     }
 
     public String sendMessageAge(String a) {
-        System.err.println("=========AGE" + LocaleContextHolder.getLocale().getLanguage() + "============");
         if (a.isEmpty()) {
             throw new MessageException(customMessageSource.getMessage("person","error.age"), "person");
         }

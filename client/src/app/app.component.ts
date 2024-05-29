@@ -26,24 +26,38 @@ export class AppComponent implements OnInit {
 
   changeLanguage(language: string) {
     this.language.switchLanguage(language + '');
-    this.locale.changeLangServe(language).subscribe(
-      {
-        next: (res) => {
-          if (res == true) {
-          } else {
-            this.toast.error(this.translate.instant("error.language"))
-          }
-        },
-        error: (err) => {
-          this.toast.error(this.translate.instant("error.language"))
-          console.log(err)
-        }
-      }
-    )
+    // this.locale.changeLangServe(language).subscribe(
+    //   {
+    //     next: (res) => {
+    //       console.log(res)
+    //       // if (res == true) {
+    //       // } else {
+    //       //   this.toast.error(this.translate.instant("error.language"))
+    //       // }
+    //     },
+    //     error: (err) => {
+    //       // this.toast.error(this.translate.instant("error.language"))
+    //       console.log("///////////")
+    //       console.log(err)
+    //     }
+    //   }
+    // )
   }
 
-  getMessageBackend() {
-    this.animalService.getMessage().subscribe({
+  getMessageNameBackend() {
+    this.animalService.getMessageName().subscribe({
+      next: (res) => {
+        this.toast.warning(res);
+        console.log(res)
+      }, error: (err) => {
+        this.toast.warning(err.error.message)
+        console.log(err)
+      }
+    })
+  }
+
+  getMessageAgeBackend() {
+    this.animalService.getMessageAge().subscribe({
       next: (res) => {
         this.toast.warning(res);
         console.log(res)

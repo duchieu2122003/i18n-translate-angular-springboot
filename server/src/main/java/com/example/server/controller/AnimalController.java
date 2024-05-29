@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class AnimalController {
 
-    private AnimalService animalService;
+    private final AnimalService  animalService;
 
     @Autowired
     private AnimalController(AnimalService animalService) {
