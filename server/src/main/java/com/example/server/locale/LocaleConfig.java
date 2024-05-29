@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -36,7 +35,6 @@ public class LocaleConfig implements WebMvcConfigurer {
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
         localeChangeInterceptor.setParamName("lang");
-        LocaleContextHolder.setLocale(Locale.forLanguageTag(localeChangeInterceptor.getParamName()));
         return localeChangeInterceptor;
     }
 
@@ -86,27 +84,27 @@ public class LocaleConfig implements WebMvcConfigurer {
 
     private String[] loadProperties() {
         List<String> propertiesFiles = new ArrayList<>();
-        File baseDir = new File("src/main/resources/messages");
-        if (!baseDir.exists() || !baseDir.isDirectory()) {
+        File path = new File("src/main/resources/messages");
+        if (!path.exists() || !path.isDirectory()) {
             return new String[0];
         }
-        loadPropertiesFromDirectory(baseDir, propertiesFiles);
+        loadPropertiesFromDirectory(path, propertiesFiles);
         return propertiesFiles.toArray(new String[0]);
     }
 
-    private void loadPropertiesFromDirectory(File directory, List<String> propertiesFiles) {
-        File[] files = directory.listFiles();
+    private void loadPropertiesFromDirectory(File path, List<String> propertiesFiles) {
+        File[] files = path.listFiles();
         if (files == null) {
             return;
         }
-        String languageCode = directory.getName();
+        String languageCode = path.getName();
         for (File file : files) {
             if (file.isDirectory()) {
                 loadPropertiesFromDirectory(file, propertiesFiles);
             } else if (file.isFile() && file.getName().endsWith(".properties")) {
                 String fileName = file.getName();
-                String fileNameWithoutExtension = fileName.substring(0, fileName.lastIndexOf('_'));
-                propertiesFiles.add("classpath:/messages/" + languageCode + "/" + fileNameWithoutExtension);
+                String fileNameReplace = fileName.substring(0, fileName.lastIndexOf('_'));
+                propertiesFiles.add("classpath:/messages/" + languageCode + "/" + fileNameReplace);
             }
         }
     }

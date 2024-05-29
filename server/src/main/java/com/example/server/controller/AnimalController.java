@@ -17,16 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class AnimalController {
 
-    private final AnimalService  animalService;
+    private final AnimalService animalService;
 
     @Autowired
     private AnimalController(AnimalService animalService) {
         this.animalService = animalService;
-    }
-
-    @GetMapping()
-    public ResponseEntity<?> getAll() {
-        return new ResponseEntity<>(animalService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/message-name")
