@@ -2,7 +2,6 @@ package com.example.server.service;
 
 import com.example.server.controller.MessageException;
 import com.example.server.locale.CustomMessageSource;
-import com.example.server.repository.AnimalRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +13,6 @@ import org.springframework.stereotype.Service;
 public class AnimalService {
 
     private final CustomMessageSource customMessageSource;
-
-    private final AnimalRepo animalRepo;
 
     public String sendMessageName(String a) {
         if (a.isEmpty()) {
